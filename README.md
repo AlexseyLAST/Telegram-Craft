@@ -1,2 +1,2 @@
 # TelegrafAnswers
-I answer questions about the Telegraf library (y)
+I answer questions about the Telegraf library
