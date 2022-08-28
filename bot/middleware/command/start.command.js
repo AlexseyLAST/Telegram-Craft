@@ -1,5 +1,5 @@
 const { bot } = require("../../connections/token.connection");
-const { saveUser } = require("../../common/sequelize/saveUser.sequelize");
+const { saveUser } = require("../../common/sequelize/user-model.sequelize");
 
 module.exports = bot.start(async (ctx) => {
   try {

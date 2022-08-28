@@ -20,3 +20,5 @@ exports.saveUser = async (login, username) => {
 
   return textAfterUpdate;
 };
+
+exports.getUsers = async () => UserModel.findAll({ raw: true });
