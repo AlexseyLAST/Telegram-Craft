@@ -21,8 +21,19 @@ module.exports = db.define(
     },
     privileged: {
       type: DataTypes.BOOLEAN,
-      allowNull: true,
+      defaultValue: false,
+      allowNull: false,
     },
+    delivered: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false,
+    },
+    dead: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false,
+    }
   },
   {
     timestamps: true,

@@ -22,3 +22,24 @@ exports.saveUser = async (login, username) => {
 };
 
 exports.getUsers = async () => UserModel.findAll({ raw: true });
+
+exports.getUsersByDelivered = async (value = false) =>
+  UserModel.findAll({
+    raw: true,
+    attributes: {
+      exclude: [
+        "id",
+        "username",
+        "privileged",
+        "delivered",
+        "dead",
+        "createdAt",
+      ],
+    },
+    where: {
+      delivered: value,
+    },
+  });
+
+exports.updateUsersByDelivered = async () =>
+  UserModel.update({ delivered: false }, { where: { delivered: true } });

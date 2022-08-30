@@ -1,14 +1,26 @@
 const { bot } = require("../../connections/token.connection");
 const { CronJob } = require("cron");
+const {
+  getUsersByDelivered,
+} = require("../../common/sequelize/user-model.sequelize");
 
 module.exports = bot.on("message", async (ctx) => {
   try {
-    const date = new Date(2022, 7, 29, 21, 39);
+    const users = await getUsersByDelivered();
+    const userIds = users.map(({ login }) => login);
+
+    const send = [];
     const job = new CronJob({
-        cronTime: date,
-        onTick: () => ctx.reply("You will see this message every second"),
-        onComplete: () => console.log("Complete!"),
-        startNow: true,
+      cronTime: "*/1 * * * * *",
+      onTick: () => {
+        ctx.telegram.sendMessage(userIds[0], "Hello");
+        send.push(userIds[0]);
+        if (send.length) {
+          job.stop();
+        }
+      },
+      onComplete: () => ctx.reply("Рассылка завершена!"),
+      startNow: true,
     });
   } catch (err) {
     console.log(err);
