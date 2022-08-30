@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DataArrayGit/TelegrafAnswers#readme",
   "dependencies": {
+    "cron": "^2.1.0",
     "dotenv": "^16.0.1",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",

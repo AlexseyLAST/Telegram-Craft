@@ -3,10 +3,9 @@ const { saveUser } = require("../../common/sequelize/user-model.sequelize");
 
 module.exports = bot.start(async (ctx) => {
   try {
-    const login = String(ctx.chat.id);
-    const username = ctx.chat.username ?? "anon";
+    const { id, username = "anon" } = ctx.chat;
 
-    const result = await saveUser(login, username);
+    const result = await saveUser(String(id), username);
     console.log(result);
 
     return;
