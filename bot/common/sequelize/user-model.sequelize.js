@@ -41,5 +41,8 @@ exports.getUsersByDelivered = async (value = false) =>
     },
   });
 
-exports.updateUsersByDelivered = async () =>
-  UserModel.update({ delivered: false }, { where: { delivered: true } });
+exports.updateUserByDelivered = async (login) =>
+  UserModel.update({ delivered: true }, { where: { login} });
+
+exports.updateUserByDead = async (login) =>
+  UserModel.update({ dead: true }, { where: { login } });
