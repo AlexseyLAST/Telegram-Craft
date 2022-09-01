@@ -1,5 +1,5 @@
 {
-  "name": "telegrafanswers",
+  "name": "telegram-craft",
   "version": "1.0.0",
   "description": "I answer questions about the Telegraf library (y)",
   "main": "index.js",
